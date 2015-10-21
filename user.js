@@ -28,7 +28,7 @@ User.loginHandler = function(event){
   })
     .done(function(data){
       console.log('login data is ', data);
-      User.current_user = new User(data.user.email, data.user.id, data.user.id);
+      User.currentUser = new User(data.user.email, data.user.id, data.user.token);
 
       Util.display('Logged In User '+ data.user.email);
       Util.showResult(data);

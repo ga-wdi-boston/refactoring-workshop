@@ -6,4 +6,7 @@ $(document).ready(function(){
   // User Login Handler/Callback
   $('#login').on('submit', User.loginHandler);
 
+  // Create Game Handler/Callback
+  $('#create-game').on('submit', Game.createGameHandler);
+
 });
