@@ -9,4 +9,6 @@ $(document).ready(function(){
   // Create Game Handler/Callback
   $('#create-game').on('submit', Game.createGameHandler);
 
+  $('#game_board').on('click', Board.setCellHandler);
+
 });

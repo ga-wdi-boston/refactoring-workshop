@@ -6,10 +6,27 @@ Game.prototype.setPlayerX = function(player){
   this.player1 = player;
 };
 
+Game.prototype.setPlayerO = function(player){
+  this.player2 = player;
+};
+
+Game.prototype.changeCurrentPlayer = function(){
+
+  if (Game.currentPlayer === this.player1){
+    Game.currentPlayer = this.player2;
+  }else{
+    Game.currentPlayer = this.player2;
+  }
+  return Game.currentPlayer;
+};
+
 Game.currentGame = null;
+Game.currentPlayer = null;
 
 Game.createGameHandler = function(event){
   event.preventDefault();
+
+  Board.reset('board_game');
 
   if(User.currentUser === undefined){
     Util.display('You Must Login before creating a game');
@@ -32,6 +49,11 @@ Game.createGameHandler = function(event){
       Game.currentGame = new Game(data.game.id);
       var player = new User(data.game.player_x.email, data.game.player_x.id);
       Game.currentGame.setPlayerX(player);
+      Game.currentPlayer = player;
+
+      // fake user for now
+      Game.currentGame.setPlayerO(new User('foo@bar.com', -1));
+
       Util.display('Current Player is '+ player.email + ' Game id is ' + Game.currentGame.id);
       Util.showResult(data);
     })
