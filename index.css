@@ -1,0 +1,38 @@
+body {
+  width: 100%;
+  background-image:url('wavegrid.png');
+}
+
+#main_container {
+  margin: 10px auto;
+  width: 800px;
+}
+
+#result {
+  height: 100px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+table {
+  margin: 0px auto;
+}
+
+.box_cell {
+   border: 1px solid black;
+   width: 150px;
+   height: 150px;
+   border-radius: 75px;
+   opacity: .75;
+   box-shadow: 2px 2px 0px #888888
+}
+
+.box_cell:hover {
+  background-color: #aaa;
+}
+
+.box_image {
+   height: 125px;
+   width: 125px;
+   left: 150px;
+}
